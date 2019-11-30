@@ -2,4 +2,4 @@ function myFunction(){
     document.getElementById("demo").innerHTML = " LOL.."
 }
 
-document.write( 1 + 1 )
+document.write("Enter your firsr sem marks");
