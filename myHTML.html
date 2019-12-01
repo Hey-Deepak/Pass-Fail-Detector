@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
     <head>
         <title >Pass Fail Detector</title>
@@ -19,16 +20,15 @@
         
         <form>
         <p id="p01">Enter your First In-Sem Marks:-</p>
-        <input type="text" name="message" id="user_input1">
+        <input type="text" id="user_input1">
         <p id="p02">Enter your Second In-Sem Marks:-</p>
-        <input type="text" name="message" id="user_input2">
+        <input type="text" id="user_input2">
         <p id="p03">Enter your Final-Sem Marks:-</p>
-        <input type="text" name="message" id="user_input3">
+        <input type="text" id="user_input3">
         <p id="p04">Enter your Assignment Marks:-</p>
-        <input type="text" name="message" id="user_input4">
+        <input type="text" id="user_input4">
         <p id="p05">Enter your Attendance Marks:-</p>
-        <input type="text" name="message" id="user_input5">
-        <p id="demo"></p>
+        <input type="text" id="user_input5">
         
         </form>
         console.log("In form");
@@ -39,11 +39,10 @@
         <p><span id='display3'></span></p>
         <p><span id='display4'></span></p>
         <p><span id='display5'></span></p>
-        <p><span id='display'></span></p>
         
         <script language="JavaScript">
                 console.log("hi2");
-                document.getElementById ("sb").addEventListener("click", myResult, false);
+                document.getElementById ("sb").addEventListener("click", showInput, false);
                     function showInput() {
                         console.log("hi3");
                         document.getElementById('display1').innerHTML = document.getElementById("user_input1").value;
