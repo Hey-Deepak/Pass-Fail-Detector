@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title >Pass Fail Detector</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Deepak Choudhary" content="HTML,CSS,JavaScript">
+</head>
+<body>
+    <h1 style="text-align: center;">Pass Fail Detector</h1>
+    <p>Enter your First In-Sem Marks:-</p>
+    <input type='number' id="ui1"></br>
+    <p>Enter your Second In-Sem Marks:-</p>
+    <input type='number' id="ui2"></br>
+    <p>Enter your Final-Sem Marks:-</p>
+    <input type='number' id="ui3"></br>
+    <p>Enter your Assignment Marks:-</p>
+    <input type='number' id="ui4"></br>
+    <p>Enter your Attendance Marks:-</p>
+    <input type='number' id="ui5"></br>
+    <br>
+    <button id="calculate" type="button" onclick="setValues()">Calculate</button>
+    <br>
+    
+    <script>
+    function setValues() {
+      var firstInSem, secondInSem, finalSem, assignment, attendance;
+      firstInSem = Number(document.getElementById("ui1").value);
+      secondInSem = Number(document.getElementById("ui2").value);
+      finalSem = Number(document.getElementById("ui3").value);
+      assignment = Number(document.getElementById("ui4").value);
+      attendance = Number(document.getElementById("ui5").value);
+      gradefunction(firstInSem, secondInSem, finalSem, assignment, attendance);
+    }
+     function gradefunction(firstInSem, secondInSem, finalSem, assignment, attendance) {
+        var total = (firstInSem*30)/100 + (secondInSem*30)/100 + (finalSem*50)/100 + (assignment) + (attendance);
+        var result = (total);
+        document.getElementById('display1').innerHTML = ("<br>Your Marks :-" +result);
+        console.log(result);
+        if (total >= 35){
+        document.getElementById("display2").innerHTML = ("<br>You are Safe and you crossed Danger Zone, Your extra marks is " + (total - 35));
+        } else
+        document.getElementById("display2").innerHTML = "You are UnSafe and you have to gain " + (35 - total)*2 + "more marks.\n Means Next time in Final Back Paper you have to score " +(finalSem + (35 - total)*2);
+    }
+    
+    </script>
+    <p id="display1"></p>
+    <p id="display2"></p>
+</body>
+</html>
