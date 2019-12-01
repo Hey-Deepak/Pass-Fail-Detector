@@ -1,24 +1,32 @@
 <html>
 <body>
-<input type='number' id='GE' value='0'></br>
-<input type='number' id='TPPIC' value='0'></br>
+<input type='number' id="ui1"></br>
+<input type='number' id="ui2"></br>
+<input type='number' id="ui3"></br>
+<input type='number' id="ui4"></br>
+<input type='number' id="ui5"></br>
+
 <button id="calculate" type="button" onclick="setValues()">Calculate</button>
 <br>
 
 <script>
 function setValues() {
-  var a, b, c, d, e;
-  a = Number(document.getElementById("GE").value);
-  b = Number(document.getElementById("TPPIC").value);
-  gradefunction(a, b);
+  var firstInSem, secondInSem, finalSem, assignment, attendance;
+  firstInSem = Number(document.getElementById("ui1").value);
+  secondInSem = Number(document.getElementById("ui2").value);
+  finalSem = Number(document.getElementById("ui3").value);
+  assignment = Number(document.getElementById("ui4").value);
+  attendance = Number(document.getElementById("ui5").value);
+  gradefunction(firstInSem, secondInSem, finalSem, assignment, attendance);
 }
-  function gradefunction(a, b) {
-    var ab = a*b
-   
-    var result = (ab*100);
+  function gradefunction(firstInSem, secondInSem, finalSem, assignment, attendance) {
+    var total = (firstInSem*30)/100 + (secondInSem*30)/100 + (finalSem*50)/100 + (assignment) + (attendance);
+    var result = (total);
+    document.getElementById('display1').innerHTML = result;
     console.log(result);
 }
 
 </script>
+<p id="display1"></p>
 </body>
 </html>
