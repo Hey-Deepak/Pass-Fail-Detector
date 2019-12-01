@@ -8,13 +8,9 @@
         <meta name="Here I am try to make my Own Website" content="About Myself and My Work">
         <meta name="Deepak Choudhary" content="HTML,CSS,JavaScript">
         <meta name="Deepak Choudhary" content="Pass Fail Detector">
-        <script language="JavaScript">
-                console.log("hi");
-              function showInput() {
-                  document.getElementById('display').innerHTML = 
-                              document.getElementById("user_input").value;
-              }
-            </script>
+        
+                
+              
             
     </head>
     <body>
@@ -35,6 +31,7 @@
         <p id="demo"></p>
         
         </form>
+        console.log("In form");
         <input type="submit" id="sb"><br/>
         <label>Your input: </label>
         <p><span id='display1'></span></p>
@@ -48,7 +45,7 @@
                 console.log("hi2");
                 document.getElementById ("sb").addEventListener("click", myResult, false);
                     function showInput() {
-                        console.log("hi");
+                        console.log("hi3");
                         document.getElementById('display1').innerHTML = document.getElementById("user_input1").value;
                         document.getElementById('display2').innerHTML = document.getElementById("user_input2").value;
                         document.getElementById('display3').innerHTML = document.getElementById("user_input3").value;
@@ -57,24 +54,23 @@
                     }
             
                     function myResult(){
-                        var firstInSem = document.getElementById("user_input1").value; ; 
-                        var secondInSem = document.getElementById("user_input2").value;; 
-                        var finalSem = document.getElementById("user_input3").value;
-                        var assignment= document.getElementById("user_input4").value; 
-                        var attendance = document.getElementById("user_input5").value;;
+                        var firstInSem = Number(document.getElementById("user_input1").value); 
+                        var secondInSem = Number(document.getElementById("user_input2").value); 
+                        var finalSem = Number(document.getElementById("user_input3").value);
+                        var assignment= Number(document.getElementById("user_input4").value); 
+                        var attendance = Number(document.getElementById("user_input5").value);
                         var total;
                         total = (firstInSem*30)/100 + (secondInSem*30)/100 + (finalSem*50)/100 + (assignment) + (attendance);
                
                         document.getElementById("display").innerHTML = ("<br>Your Total Marks : " + total);
                         if (total >= 35){
                         document.getElementById("display").innerHTML += ("<br>You are Safe and you crossed Danger Zone, Your extra marks is " + (total - 35));
-       
-       } else
-       document.getElementById("display").innerHTML += "You are UnSafe and you have to gain " + (35 - total)*2 + "more marks.\n Means Next time in Final Back Paper you have to score " +(finalSem + (35 - total)*2);
-}
+                        } else
+                        document.getElementById("display").innerHTML += "You are UnSafe and you have to gain " + (35 - total)*2 + "more marks.\n Means Next time in Final Back Paper you have to score " +(finalSem + (35 - total)*2);
+
              
                     
-            </script>
+        </script>
         
     </body>
 </html>
