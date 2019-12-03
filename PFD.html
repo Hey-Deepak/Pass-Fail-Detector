@@ -40,10 +40,10 @@
             if (finalSem >= 35) {
                 document.getElementById("display2").innerHTML = ("<br>You are Safe and you crossed Danger Zone, Your extra marks is " + (total - 35) + ".");
             } else{
-                document.getElementById("display2").innerHTML = " You are UnSafe and you have to gain " + (35 - finalSem) + " more marks.\n Means Next time in Final Back Paper you have to score Only 35 Marks. ";
+                document.getElementById("display2").innerHTML = " You are UnSafe and you have to gain " + (35 - finalSem) + " more marks from Teacher (Current Time). Means Next time in Final Back Paper you have to score Only 35 Marks. ";
             }
         } else
-        document.getElementById("display3").innerHTML = " You are UnSafe and you have to gain " + ((35 - total)*2) + " more marks.\n Means Next time in Final Back Paper you have to score " +(finalSem + (35 - total)*2);
+        document.getElementById("display2").innerHTML = " You are UnSafe and you have to gain " + ((35 - total)*2) + " more marks from Teacher (Current Time).\n Means Next time in Final Back Paper you have to score Only " +(finalSem + (35 - total)*2) + " Marks";
     }
     
     </script>
