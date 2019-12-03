@@ -37,19 +37,18 @@
         document.getElementById('display1').innerHTML = ("<br>Your Marks :-" +result);
         console.log(result);
         if (total >= 35){
-        document.getElementById("display2").innerHTML = ("<br>You are Safe and you crossed Danger Zone, Your extra marks is " + (total - 35));
+            if (finalSem >= 35) {
+                document.getElementById("display2").innerHTML = ("<br>You are Safe and you crossed Danger Zone, Your extra marks is " + (total - 35) + ".");
+            } else{
+                document.getElementById("display2").innerHTML = " You are UnSafe and you have to gain " + (35 - finalSem) + " more marks.\n Means Next time in Final Back Paper you have to score Only 35 Marks. ";
+            }
         } else
-        document.getElementById("display2").innerHTML = "You are UnSafe and you have to gain " + (35 - total)*2 + " more marks from Teacher (Current Time). Means Next time in Final Back Paper you have to score " +(finalSem + (35 - total)*2) + " marks ";
-        if((finalSem + (35 - total)*2) < 35){
-        document.getElementById('display3').innerHTML = ("According To your Marks you can chill, for you Minimum Marks Requried in Final Sem is 35. MATLAB 35 LAO OR BACK FREE LIFE ENJOY KARO :-)")
-        }
+        document.getElementById("display3").innerHTML = " You are UnSafe and you have to gain " + ((35 - total)*2) + " more marks.\n Means Next time in Final Back Paper you have to score " +(finalSem + (35 - total)*2);
     }
     
     </script>
     <p id="display1"></p>
     <p id="display2"></p>
     <p id="display3"></p>
-    
 </body>
 </html>
-     
