@@ -1,60 +1,104 @@
 <html>
+
 <head>
-    <title >Pass Fail Detector</title>
+    <title>Pass Fail Detector</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Deepak Choudhary" content="HTML,CSS,JavaScript">
+    <link rel="stylesheet" src="https://cdn.jsdelivr.net/gh/rsms/interface@1.1/docs/interface.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
+    <link rel="stylesheet" href="./myCSS.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
+
 <body>
-    <h1 style="text-align: center;">Pass Fail Detector</h1>
-    <p>Enter your First In-Sem Marks:-</p>
-    <input type='number' id="ui1"></br>
-    <p>Enter your Second In-Sem Marks:-</p>
-    <input type='number' id="ui2"></br>
-    <p>Enter your Final-Sem Marks:-</p>
-    <input type='number' id="ui3"></br>
-    <p>Enter your Assignment Marks:-</p>
-    <input type='number' id="ui4"></br>
-    <p>Enter your Attendance Marks:-</p>
-    <input type='number' id="ui5"></br>
-    <br>
-    <button id="calculate" type="button" onclick="setValues()">Calculate</button>
-    <br>
-    
+    <div id="container" style="content: center; border: 5px; padding: 20px;">
+        <h1 style="font-size: 60px;">Pass Fail Detector</h1>
+        <div id="display0">
+            <p>Enter your First In-Sem Marks:-</p>
+            <input type='number' id="ui1"></br>
+            <p>Enter your Second In-Sem Marks:-</p>
+            <input type='number' id="ui2"></br>
+            <p>Enter your Final-Sem Marks:-</p>
+            <input type='number' id="ui3"></br>
+            <p>Enter your Assignment Marks:-</p>
+            <input type='number' id="ui4"></br>
+            <p>Enter your Attendance Marks:-</p>
+            <input type='number' id="ui5"></br>
+            <br>
+            <button id="calculate" class="animated infinite jello" type="button"
+                onclick="setValues()">Calculate</button>
+            <br>
+        </div>
+        <div id="tryagain" style="display: none;">
+            <div id="display1" style="border: 10px; padding: 10px;">
+                <p id="p1"></p>
+            </div>
+            <div div id="display2" style="border: 10px; padding: 10px;">
+                <p id="p2"></p>
+                <button class="animated hinge" type="button" style="margin-top:20; align: center;">Try
+                    Again?</button>
+            </div>
+        </div>
+
+    </div>
+
+
     <script>
-    function setValues() {
-      var firstInSem, secondInSem, finalSem, assignment, attendance;
-      firstInSem = Number(document.getElementById("ui1").value);
-      secondInSem = Number(document.getElementById("ui2").value);
-      finalSem = Number(document.getElementById("ui3").value);
-      assignment = Number(document.getElementById("ui4").value);
-      attendance = Number(document.getElementById("ui5").value);
-      gradefunction(firstInSem, secondInSem, finalSem, assignment, attendance);
-    }
-     function gradefunction(firstInSem, secondInSem, finalSem, assignment, attendance) {
-        var total = (firstInSem*30)/100 + (secondInSem*30)/100 + (finalSem*50)/100 + (assignment) + (attendance);
-        var result = (total);
-        document.getElementById('display1').innerHTML = ("<br>Your Marks :-" +result);
-        console.log(result);
-        if (total >= 35){
-            if (finalSem >= 35) {
-                document.getElementById("display2").innerHTML = ("<br>You are Safe and you crossed Danger Zone, Your extra marks is " + (total - 35) + ".");
-            } else{
-                document.getElementById("display2").innerHTML = " You are UnSafe and you have to gain " + (35 - finalSem) + " more marks from Teacher (Current Time). Means Next time in Final Back Paper you have to score Only 35 Marks. ";
-            }
-        } else {
-            if ((finalSem + (35 - total)*2) <  35) {
-            document.getElementById("display2").innerHTML = " You are UnSafe and you have to gain " + ((35 - total)*2) + " more marks from Teacher (Current Time).\n Means Next time in Final Back Paper you have to score Only 35 Marks.";
-            } else {
-            document.getElementById("display2").innerHTML = " You are UnSafe and you have to gain " + ((35 - total)*2) + " more marks from Teacher (Current Time).\n Means Next time in Final Back Paper you have to score Only " +(finalSem + (35 - total)*2) + " Marks";
-            }   
+        function setValues() {
+            var firstInSem, secondInSem, finalSem, assignment, attendance;
+            firstInSem = Number(document.getElementById("ui1").value);
+            secondInSem = Number(document.getElementById("ui2").value);
+            finalSem = Number(document.getElementById("ui3").value);
+            assignment = Number(document.getElementById("ui4").value);
+            attendance = Number(document.getElementById("ui5").value);
+            gradefunction(firstInSem, secondInSem, finalSem, assignment, attendance);
+
+            var x = document.getElementById("display0");
+            x.style.display = "none";
+            x = document.getElementById("tryagain");
+            x.style.display = "";
         }
-    }
-            
-    
+
+        function tryagain() {
+            var x = document.getElementById("display0");
+            x.style.display === ""
+            x = document.getElementById("tryagain");
+            x.style.display = "none";
+        }
+
+
+        function gradefunction(firstInSem, secondInSem, finalSem, assignment, attendance) {
+            var total = (firstInSem * 30) / 100 + (secondInSem * 30) / 100 + (finalSem * 50) / 100 + (assignment) + (attendance);
+            var result = (total);
+            document.getElementById('p1').innerHTML = ("<br>Your Marks :-" + result);
+            console.log(result);
+
+            if (total >= 35) {
+                if (finalSem >= 35) {
+                    document.getElementById("p2").innerHTML = ("<br>You are Safe and you crossed Danger Zone, Your extra marks is " + (total - 35) + ".");
+
+
+                } else {
+                    document.getElementById("p2").innerHTML = " You are UnSafe and you have to gain " + (35 - finalSem) + " more marks from Teacher (Current Time). <br/> Means Next time in Final Back Paper you have to score Only 35 Marks. ";
+
+                }
+            } else {
+                if ((finalSem + (35 - total) * 2) < 35) {
+                    document.getElementById("p2").innerHTML = " You are UnSafe and you have to gain " + ((35 - total) * 2) + " more marks from Teacher (Current Time).\n <br/> Means Next time in Final Back Paper you have to score Only 35 Marks.";
+
+                } else {
+                    document.getElementById("p2").innerHTML = " You are UnSafe and you have to gain " + ((35 - total) * 2) + " more marks from Teacher (Current Time).\n <br/> Means Next time in Final Back Paper you have to score Only " + (finalSem + (35 - total) * 2) + " Marks";
+
+                }
+            }
+        }
+
+
     </script>
-    <p id="display1"></p>
-    <p id="display2"></p>
-    <p id="display3"></p>
+    <footer style="  position: relative; margin-top:40px; right: 0; bottom: 0; width: 100%; color: white; text-align: center; ">
+        Made with 💖 by JU Failures
+    </footer>
 </body>
+
 </html>
