@@ -36,7 +36,7 @@
             </div>
             <div div id="display2" style="border: 10px; padding: 10px;">
                 <p id="p2"></p>
-                <button class="animated hinge" type="button" style="margin-top:20; align: center;">Try
+                <button class="animated hinge" type="button" style="margin-top:20; align: center; "onclick="tryagain()" >Try
                     Again?</button>
             </div>
         </div>
@@ -61,10 +61,7 @@
         }
 
         function tryagain() {
-            var x = document.getElementById("display0");
-            x.style.display === ""
-            x = document.getElementById("tryagain");
-            x.style.display = "none";
+            window.location.reload(true);
         }
 
 
